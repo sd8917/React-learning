@@ -1,10 +1,8 @@
-import Button from "./components/Button";
-import Login from "./components/Login";
+import Parent from "./components/callbackComp";
 function App() {
   return (
     <div>
-      <Button />
-      <Login />
+      <Parent />
     </div>
   );
 }
