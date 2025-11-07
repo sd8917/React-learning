@@ -1,44 +1,52 @@
-import React from "react"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form";
+import { TextField, Button } from "@mui/material";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-// The following component is an example of your existing Input Component
-const Input = ({ label, register, required }) => (
-  <>
-    <label>{label}</label>
-    <input {...register(label, { required })} />
-  </>
-)
-
-
-// you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef(({ onChange, onBlur, name, label }, ref) => (
-  <>
-    <label>{label}</label>
-    <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
-      <option value="20">20</option>
-      <option value="30">30</option>
-    </select>
-  </>
-))
-
+const schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(6),
+});
 
 function Login() {
-  const { register, handleSubmit } = useForm()
+  const { control, handleSubmit } = useForm({
+    resolver: zodResolver(schema),
+  });
 
-
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data))
-  }
-
+  const onSubmit = (data) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="First Name" register={register} required />
-      <Select label="Age" {...register("Age")} />
-      <input type="submit" />
+      <Controller
+        name="email"
+        control={control}
+        render={({ field, fieldState }) => (
+          <TextField
+            {...field}
+            label="Email"
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message}
+          />
+        )}
+      />
+      <Controller
+        name="password"
+        control={control}
+        render={({ field, fieldState }) => (
+          <TextField
+            {...field}
+            type="password"
+            label="Password"
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message}
+          />
+        )}
+      />
+      <Button type="submit">Login</Button>
     </form>
-  )
+  );
 }
+
 export default Login
 
 // import { useState } from "react";
