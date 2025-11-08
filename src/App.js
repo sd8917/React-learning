@@ -1,10 +1,10 @@
-import Button from "./components/Button";
-import Login from "./components/Login";
+import Cart from "./components/Cart";
+
+
 function App() {
   return (
     <div>
-      <Button />
-      <Login />
+      <Cart />
     </div>
   );
 }
