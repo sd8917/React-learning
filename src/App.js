@@ -1,11 +1,11 @@
-import Button from "./components/Button";
-import Login from "./components/Login";
+import { ThemeProvider } from "./components/themeContext";
+import Header from "./Header";
+
 function App() {
   return (
-    <div>
-      <Button />
-      <Login />
-    </div>
+   <ThemeProvider>
+    <Header />
+  </ThemeProvider>
   );
 }
 
