@@ -1,10 +1,11 @@
-import Cart from "./components/Cart";
+
+import Parent from "./components/Parent";
 
 
 function App() {
   return (
     <div>
-      <Cart />
+      <Parent />
     </div>
   );
 }
