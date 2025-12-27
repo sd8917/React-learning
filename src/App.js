@@ -1,11 +1,15 @@
-import { ThemeProvider } from "./components/themeContext";
-import Header from "./Header";
+import AddTodo from "./components/AddTodo";
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
-   <ThemeProvider>
-    <Header />
-  </ThemeProvider>
+   <>
+   <h1>My app</h1>
+
+   <AddTodo />
+   
+   <TodoList />
+   </>
   );
 }
 

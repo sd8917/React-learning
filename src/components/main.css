@@ -1,0 +1,31 @@
+.form{
+    display: flex;
+    flex-direction: row;
+    color: black;
+    border: 1px solid chocolate;
+    padding: 20px;
+    margin: 20px;
+
+    display: grid;
+    flex-direction: row;
+
+}
+
+/* .list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    line-height: 1.5;
+    border: 2px solid olivedrab;
+} */
+
+.row-item{
+   display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    line-height: 1.5;
+    border: 2px solid olivedrab;
+    margin: 1px;
+}
